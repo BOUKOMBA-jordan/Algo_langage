@@ -1,0 +1,63 @@
+VARIABLES
+  note,coefficient,sommevaleur, sommecoefficient, nombre_matiere,moyenne_eleve: Reel
+DEBUT_ALGORITHME
+    ECRIRE("Veillez saisie le nombre de matière: ");
+    LIRE(nombre_matiere);
+    note <- -1;
+    coefficient <- -1;
+    sommevaleur <- 0;
+    sommecoefficient <- 0;
+    POUR (i ALLANT_DE 1 A nombre_matiere)faire
+        TANT_QUE (note<0 ou note>20) FAIRE
+            ECRIRE("Veillez saisie la note: ");
+            LIRE (note);
+            SI (note<0 ou note>20) ALORS
+                AFFICHER("La note saisie n'est pas valide");
+                ECRIRE("Veillez saisie la note: ");
+                LIRE (note);
+            FIN_SI
+        FIN_TANT_QUE
+        TANT_QUE(coefficient<0) FAIRE
+            ECRIRE("Veillez saisie le coefficient de la note");
+            LIRE(coefficient);
+            SI (coefficient<0) ALORS
+                AFFICHER("Le coefficient saisie n'est pas valide");
+            FIN_SI
+        FIN_TANT_QUE
+        sommevaleur <- sommevaleur+(note*coefficient)
+        sommecoefficient <- sommecoefficient+coefficient
+        note <- -1
+        coefficient <- -1
+    FIN_POUR
+    moyenne_eleve <- sommevaleur/sommecoefficient
+    SI(moyenne_eleve<10) ALORS
+    DEBUT_SI
+    AFFICHER "La moyenne est "
+    AFFICHER moyenne_eleve
+    AFFICHER " élève recalé"
+    FIN_SI
+    SI (moyenne_eleve>=10 et moyenne_eleve<12) ALORS
+    DEBUT_SI
+    AFFICHER "La moyenne est "
+    AFFICHER moyenne_eleve
+    AFFICHER " élève assez bien"
+    FIN_SI
+    SI (moyenne_eleve>=12 et moyenne_eleve<14) ALORS
+    DEBUT_SI
+    AFFICHER "La moyenne est "
+    AFFICHER moyenne_eleve
+    AFFICHER " élève bien"
+    FIN_SI
+    SI (moyenne_eleve>=14 et moyenne_eleve<16) ALORS
+    DEBUT_SI
+    AFFICHER "La moyenne est "
+    AFFICHER moyenne_eleve
+    AFFICHER " élève très bien"
+    FIN_SI
+    SI (moyenne_eleve>=16 et moyenne_eleve<=20) ALORS
+    DEBUT_SI
+    AFFICHER "La moyenne est "
+    AFFICHER moyenne_eleve
+    AFFICHER " élève excellent"
+    FIN_SI
+FIN_ALGORITHME
